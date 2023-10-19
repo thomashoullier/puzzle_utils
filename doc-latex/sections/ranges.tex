@@ -1,0 +1,18 @@
+\section{Ranges}
+The ranges library \cite{cppreference_ranges} is part of the standard since
+C++20.
+
+\subsection{Range factories}
+\subsubsection{iota}
+\href{https://en.cppreference.com/w/cpp/ranges/iota_view}{iota} is
+\emph{a range factory that generates a sequence of elements by repeatedly
+  incrementing an initial value. Can be either bounded or unbounded (infinite)}.
+
+\begin{lstlisting}[language=C++, caption={iota example}, label={lst:ex_iota}]
+  std::views::iota(1) | std::views::take(5)
+  std::views::iota(1,6) \end{lstlisting}
+
+Both evaluate to the following.
+
+\begin{lstlisting}[language={}]
+  1 2 3 4 5 \end{lstlisting}

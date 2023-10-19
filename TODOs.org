@@ -8,8 +8,12 @@ See https://en.cppreference.com/w/cpp/ranges
 
 *** TODO Introduce what are ranges, views, algorithms over them
 
+*** TODO Printing a range
+Basic thing.
+
 *** TODO iota range factory
 + See https://en.cppreference.com/w/cpp/ranges/iota_view
++ Run the example for real in an example section of the build.
 
 *** TODO filter range adaptor
 + See https://en.cppreference.com/w/cpp/ranges/filter_view
