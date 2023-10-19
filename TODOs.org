@@ -1,0 +1,24 @@
+:PROPERTIES:
+:CATEGORY: puzzle_utils
+:END:
+
+* Documentation
+** Document standard functions
+See https://en.cppreference.com/w/cpp/ranges
+
+*** TODO Introduce what are ranges, views, algorithms over them
+
+*** TODO iota range factory
++ See https://en.cppreference.com/w/cpp/ranges/iota_view
+
+*** TODO filter range adaptor
++ See https://en.cppreference.com/w/cpp/ranges/filter_view
+
+*** TODO fold_left
++ Used as a way to sum.
+
+*** TODO accumulate
+
+* Functions to implement
+** TODO Predicate for "is multiple of X"
+** TODO Unbounded sequence for Fibonacci
