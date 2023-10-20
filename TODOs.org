@@ -25,4 +25,6 @@ Basic thing.
 
 * Functions to implement
 ** TODO Predicate for "is multiple of X"
+We can do a variadic function, for multiple of X, Y, Z etc.
+
 ** TODO Unbounded sequence for Fibonacci
