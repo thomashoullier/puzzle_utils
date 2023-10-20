@@ -8,12 +8,17 @@ See https://en.cppreference.com/w/cpp/ranges
 
 *** TODO Introduce what are ranges, views, algorithms over them
 
-*** TODO Printing a range
+*** DONE Printing a range
+CLOSED: [2023-10-20 Fri 18:33]
 Basic thing.
 
-*** TODO iota range factory
+*** DONE iota range factory
+CLOSED: [2023-10-20 Fri 18:33]
 + See https://en.cppreference.com/w/cpp/ranges/iota_view
 + Run the example for real in an example section of the build.
+
+*** TODO Create a range from a list of numbers manually.
+initializer_list?
 
 *** TODO filter range adaptor
 + See https://en.cppreference.com/w/cpp/ranges/filter_view
@@ -28,3 +33,13 @@ Basic thing.
 We can do a variadic function, for multiple of X, Y, Z etc.
 
 ** TODO Unbounded sequence for Fibonacci
+** TODO Printing a bounded range
+Maybe implement a function taking a bounded range and printing it.
+We probably can check using a template that it is bounded.
++ Can we make it so it is pipeable?
+  See https://stackoverflow.com/questions/74074633/how-do-you-make-a-pipeable-function-like-rangestot-with-range-v3-ranges
+  + Make the operator give back the range at the other end, so we can print
+    intermediate ranges without interrupting processing.
++ Add the possibility of printing the first n elements for unbounded ranges.
++ Avoid using a naive trailing white space to the printing.
+  See maybe the fmt library?

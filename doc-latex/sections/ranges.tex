@@ -2,6 +2,21 @@
 The ranges library \cite{cppreference_ranges} is part of the standard since
 C++20.
 
+\subsection{Printing ranges}
+The way to print (bounded) ranges, as usually shown in cppreference, uses
+\cref{lst:ex_range_printing}.
+
+\begin{lstlisting}[language=C++, caption={Range printing example},
+                   label={lst:ex_range_printing}]
+  for (auto i : std::views::iota(1,4)) {
+    std::cout << i << " ";
+  }
+  std::cout << std::endl;
+\end{lstlisting}
+
+For the sake of conciseness, we will omit the printing function in the rest of
+this document.
+
 \subsection{Range factories}
 \subsubsection{iota}
 \href{https://en.cppreference.com/w/cpp/ranges/iota_view}{iota} is
