@@ -40,7 +40,8 @@ Implement a utility for printing views.
   + OK. Usage with the pipe syntax.
   + OK. Gives back the range at the other end of the pipe.
   + OK. Guard against infinite printing.
-  + Add the possibility of printing the first n elements for unbounded ranges.
+  + OK. Add the possibility of printing the first n elements for unbounded ranges.
+  + OK. Replace std::enable_if_t with C++20 concepts.
 + Relevant links:
   + https://stackoverflow.com/questions/65676338/writing-a-c20-range-to-standard-output
   + https://stackoverflow.com/questions/74074633/how-do-you-make-a-pipeable-function-like-rangestot-with-range-v3-ranges
