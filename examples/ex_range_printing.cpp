@@ -1,12 +1,10 @@
 #include <iostream>
 #include <ranges>
+#include <fmt/ranges.h>
 
 template<std::ranges::view V>
 void print_range (const V& range) {
-  for (const auto& item : range) {
-    std::cout << item << " ";
-  }
-  std::cout << std::endl;
+  fmt::print("{}\n", range);
 }
 
 class RangePrinter {};
