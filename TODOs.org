@@ -29,22 +29,21 @@ initializer_list?
 *** TODO accumulate
 
 * Functions to implement
+** TODO Create a library with its own namespace
 ** TODO Predicate for "is multiple of X"
 We can do a variadic function, for multiple of X, Y, Z etc.
 
 ** TODO Unbounded sequence for Fibonacci
-** TODO Printing a bounded range
-Maybe implement a function taking a bounded range and printing it.
-We probably can check using a template that it is bounded.
-+ Can we make it so it is pipeable?
-  See https://stackoverflow.com/questions/74074633/how-do-you-make-a-pipeable-function-like-rangestot-with-range-v3-ranges
-  + Make the operator give back the range at the other end, so we can print
-    intermediate ranges without interrupting processing.
-+ Add the possibility of printing the first n elements for unbounded ranges.
-+ Avoid using a naive trailing white space to the printing.
-  See maybe the fmt library?
+** TODO Printing a view
+Implement a utility for printing views.
++ Features:
+  + OK. Usage with the pipe syntax.
+  + OK. Gives back the range at the other end of the pipe.
+  + OK. Guard against infinite printing.
+  + Add the possibility of printing the first n elements for unbounded ranges.
 + Relevant links:
-  https://stackoverflow.com/questions/65676338/writing-a-c20-range-to-standard-output
+  + https://stackoverflow.com/questions/65676338/writing-a-c20-range-to-standard-output
+  + https://stackoverflow.com/questions/74074633/how-do-you-make-a-pipeable-function-like-rangestot-with-range-v3-ranges
 
 * Maintenance
 ** HOLD Replace the external fmt library with the standard C++ when it becomes available
