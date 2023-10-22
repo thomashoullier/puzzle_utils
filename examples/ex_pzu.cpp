@@ -3,10 +3,10 @@
 
 int main () {
   auto r = std::views::iota(1,6);
-  r | rangePrinter;
-  r | RangePrinter(3);
-  r | RangePrinter(15);
-  r | rangePrinter | RangePrinter(3);
-  std::views::iota(1) | rangePrinter;
-  std::views::iota(1) | RangePrinter(3);
+  r | pzu::rangePrinter;
+  r | pzu::RangePrinter(3);
+  r | pzu::RangePrinter(15);
+  r | pzu::rangePrinter | pzu::RangePrinter(3);
+  std::views::iota(1) | pzu::rangePrinter;
+  std::views::iota(1) | pzu::RangePrinter(3);
 }
