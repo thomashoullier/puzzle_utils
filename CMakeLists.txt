@@ -33,3 +33,6 @@ add_executable(ex_iota "${EXAMPLES_DIR}/ex_iota.cpp")
 add_executable(ex_range_printing "${EXAMPLES_DIR}/ex_range_printing.cpp")
 target_link_libraries(ex_range_printing PRIVATE
                         fmt::fmt-header-only pzu)
+
+add_executable(ex_multiple "${EXAMPLES_DIR}/ex_multiple.cpp")
+target_link_libraries(ex_multiple PRIVATE pzu)
