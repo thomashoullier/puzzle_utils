@@ -22,7 +22,7 @@ file(GLOB_RECURSE PZU_SRC "${PZU_DIR}/src/*.cpp")
 add_library(pzu STATIC "${PZU_SRC}")
 target_include_directories(pzu PUBLIC
   "$<BUILD_INTERFACE:${PZU_DIR}/src>")
-target_link_libraries(pzu PRIVATE fmt::fmt-header-only)
+target_link_libraries(pzu PUBLIC fmt::fmt-header-only)
 
 # Examples
 set (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -g -Wall -O2 -Wextra")
@@ -32,3 +32,6 @@ add_executable(ex_iota "${EXAMPLES_DIR}/ex_iota.cpp")
 
 add_executable(ex_range_printing "${EXAMPLES_DIR}/ex_range_printing.cpp")
 target_link_libraries(ex_range_printing PRIVATE fmt::fmt-header-only)
+
+add_executable(ex_pzu "${EXAMPLES_DIR}/ex_pzu.cpp")
+target_link_libraries(ex_pzu PUBLIC pzu)
