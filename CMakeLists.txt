@@ -31,7 +31,5 @@ set(EXAMPLES_DIR "${CMAKE_CURRENT_LIST_DIR}/examples")
 add_executable(ex_iota "${EXAMPLES_DIR}/ex_iota.cpp")
 
 add_executable(ex_range_printing "${EXAMPLES_DIR}/ex_range_printing.cpp")
-target_link_libraries(ex_range_printing PRIVATE fmt::fmt-header-only)
-
-add_executable(ex_pzu "${EXAMPLES_DIR}/ex_pzu.cpp")
-target_link_libraries(ex_pzu PUBLIC pzu)
+target_link_libraries(ex_range_printing PRIVATE
+                        fmt::fmt-header-only pzu)
