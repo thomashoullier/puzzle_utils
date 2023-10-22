@@ -1,6 +1,7 @@
 cmake_minimum_required(VERSION 3.26)
 project(puzzle_utils)
 
+set(CMAKE_BUILD_TYPE "Release")
 set(CMAKE_CXX_STANDARD 23)
 
 # External libraries
@@ -13,6 +14,15 @@ FetchContent_Declare(
   GIT_SHALLOW TRUE
   GIT_PROGRESS TRUE)
 FetchContent_MakeAvailable(fmt)
+
+# pzu library
+set(PZU_DIR "${CMAKE_CURRENT_LIST_DIR}")
+file(GLOB_RECURSE PZU_SRC "${PZU_DIR}/src/*.cpp")
+
+add_library(pzu STATIC "${PZU_SRC}")
+target_include_directories(pzu PUBLIC
+  "$<BUILD_INTERFACE:${PZU_DIR}/src>")
+target_link_libraries(pzu PRIVATE fmt::fmt-header-only)
 
 # Examples
 set (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -g -Wall -O2 -Wextra")
