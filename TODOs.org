@@ -31,6 +31,19 @@ initializer_list?
 *** TODO accumulate
 
 * Test suite
+** TODO Initiate the test suite.
+Create the test suite with the existing pzu library examples.
+
+** TODO Add test coverage utility
+
+** TODO Add the non-regression test case on print
+This is:
+
+#+begin_src C++
+  auto even = [](int i) { return 0 == i % 2; };
+  std::views::iota(1,20) | std::views::filter(even) | pzu::rangePrinter;
+#+end_src
+
 
 * Functions to implement
 ** DONE Create a library with its own namespace
@@ -39,6 +52,8 @@ CLOSED: [2023-10-22 Sun 17:28]
 Features:
 + Must be used like: ~| std::views::filter(pzu::is_multiple_of(5,3))~
 + We can do a variadic function, for multiple of X, Y, Z etc.
++ Generalize to all valid inputs for the ~%~ operator, try using an auto,
+  or if it fails, an integral type.
 
 ** TODO Unbounded sequence for Fibonacci
 ** DONE Printing a view
@@ -59,8 +74,15 @@ Implement a utility for printing views.
 + Use the C++23 <print> header when it becomes implemented in gcc.
   See https://en.cppreference.com/w/cpp/compiler_support/23
 
-** TODO Bug in RangePrinter
+** DONE Bug in RangePrinter
+CLOSED: [2023-10-23 Mon 21:18]
 The following does not seem to work:
 ~std::views::iota(1,20) | std::views::filter(is_multiple_of_2) | pzu::rangePrinter~
 
++ This is not a SizedRange since it does not know its size in constant time.
 + Add the bug to a non-regression test.
+
+We have solved the bug by changing the print RangePrinter method from:
+~print (const View auto &range)~ to ~print (View auto range)~.
+I think the reason may be that some ranges do need to modify their state
+in order to know their length?

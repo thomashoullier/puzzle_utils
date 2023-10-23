@@ -21,4 +21,7 @@ int main () {
   std::views::iota(1) | pzu::rangePrinter
                       | std::views::take(2)
                       | pzu::rangePrinter;
+  // TODO: Non-regression test case.
+  auto even = [](int i) { return 0 == i % 2; };
+  std::views::iota(1,20) | std::views::filter(even) | pzu::rangePrinter;
 }
