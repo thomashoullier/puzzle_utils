@@ -3,7 +3,7 @@
 
 template <typename... Args>
 auto is_multiple_of (Args... args) {
-  return [args...](int x) {
+  return [args...](const auto x) {
     return (... && (x % args == 0));
   };
 }
