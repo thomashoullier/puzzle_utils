@@ -30,8 +30,10 @@ initializer_list?
 
 *** TODO accumulate
 
+
 * Test suite
-** TODO Initiate the test suite.
+** DONE Initiate the test suite.
+CLOSED: [2023-10-24 Tue 21:31]
 Create the test suite with the existing pzu library examples.
 
 ** TODO Add test coverage utility
@@ -44,6 +46,10 @@ This is:
   std::views::iota(1,20) | std::views::filter(even) | pzu::rangePrinter;
 #+end_src
 
+** TODO Silence cout in the tests for RangePrinter
+RangePrinter works as intended, we want it to output to cout and only there
+for simplicity.
+But we do not want it to add noise in the test report.
 
 * Functions to implement
 ** DONE Create a library with its own namespace

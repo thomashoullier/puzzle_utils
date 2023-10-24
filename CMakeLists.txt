@@ -24,6 +24,19 @@ target_include_directories(pzu PUBLIC
   "$<BUILD_INTERFACE:${PZU_DIR}/src>")
 target_link_libraries(pzu PUBLIC fmt::fmt-header-only)
 
+# pzu test suite
+FetchContent_Declare(
+  Catch2
+  GIT_REPOSITORY https://github.com/catchorg/Catch2.git
+  GIT_TAG        v3.4.0
+  GIT_SHALLOW TRUE
+  GIT_PROGRESS TRUE)
+FetchContent_MakeAvailable(Catch2)
+
+file(GLOB_RECURSE PZU_TEST_SRC "${PZU_DIR}/test/*.cpp")
+add_executable(pzu_test "${PZU_DIR}/test/test_main.cpp" "${PZU_TEST_SRC}")
+target_link_libraries(pzu_test PRIVATE pzu Catch2::Catch2WithMain)
+
 # Examples
 set (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -g -Wall -O2 -Wextra")
 set(EXAMPLES_DIR "${CMAKE_CURRENT_LIST_DIR}/examples")
