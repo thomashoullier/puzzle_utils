@@ -29,8 +29,6 @@ initializer_list?
 + Used as a way to sum.
 
 *** TODO accumulate
-
-
 * Test suite
 ** DONE Initiate the test suite.
 CLOSED: [2023-10-24 Tue 21:31]
@@ -38,7 +36,8 @@ Create the test suite with the existing pzu library examples.
 
 ** TODO Add test coverage utility
 
-** TODO Add the non-regression test case on print
+** DONE Add the non-regression test case on print
+CLOSED: [2023-10-25 Wed 19:18]
 This is:
 
 #+begin_src C++
@@ -50,6 +49,10 @@ This is:
 RangePrinter works as intended, we want it to output to cout and only there
 for simplicity.
 But we do not want it to add noise in the test report.
+
++ ~std::cout.rdbuf(NULL)~ does not work: we still see the same output.
++ ~std::cout.setstate(std::ios_base::failbit);~  does not work either.
++ Where does ~fmt::print~ goes by default?
 
 * Functions to implement
 ** DONE Create a library with its own namespace
