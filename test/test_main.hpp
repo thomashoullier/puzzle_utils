@@ -4,5 +4,6 @@
 #define CATCH_CONFIG_MAIN
 
 #include "ranges_test.hpp"
+#include "multiple_test.hpp"
 
 #endif // TEST_MAIN_H

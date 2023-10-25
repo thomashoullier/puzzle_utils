@@ -6,6 +6,9 @@
 ** Document standard functions
 See https://en.cppreference.com/w/cpp/ranges
 
+*** TODO Create doxygen documention of pzu
+We require only a description of the API of pzu.
+
 *** TODO Introduce what are ranges, views, algorithms over them
 
 *** DONE Printing a range
@@ -57,7 +60,8 @@ But we do not want it to add noise in the test report.
 * Functions to implement
 ** DONE Create a library with its own namespace
 CLOSED: [2023-10-22 Sun 17:28]
-** TODO Predicate for "is multiple of X"
+** DONE Predicate for "is multiple of X"
+CLOSED: [2023-10-25 Wed 20:03]
 Features:
 + Must be used like: ~| std::views::filter(pzu::is_multiple_of(5,3))~
 + We can do a variadic function, for multiple of X, Y, Z etc.
