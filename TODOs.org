@@ -17,6 +17,7 @@ Basic thing.
 
 *** TODO Document our ex_range_printing example
 
+*** TODO Document the ex_multiple example
 *** DONE iota range factory
 CLOSED: [2023-10-20 Fri 18:33]
 + See https://en.cppreference.com/w/cpp/ranges/iota_view
@@ -37,8 +38,10 @@ initializer_list?
 CLOSED: [2023-10-24 Tue 21:31]
 Create the test suite with the existing pzu library examples.
 
-** TODO Add test coverage utility
+** DONE Add test coverage utility
+CLOSED: [2023-10-27 Fri 15:39]
 
+** TODO Test suite in CI
 ** DONE Add the non-regression test case on print
 CLOSED: [2023-10-25 Wed 19:18]
 This is:
@@ -55,7 +58,8 @@ But we do not want it to add noise in the test report.
 
 + ~std::cout.rdbuf(NULL)~ does not work: we still see the same output.
 + ~std::cout.setstate(std::ios_base::failbit);~  does not work either.
-+ Where does ~fmt::print~ goes by default?
++ Where does ~fmt::print~ goes by default? I think to cstdio stdout, try
+  disconnecting this.
 
 * Functions to implement
 ** DONE Create a library with its own namespace
@@ -69,6 +73,62 @@ Features:
   or if it fails, an integral type.
 
 ** TODO Unbounded sequence for Fibonacci
+Can probably look like this, thank you LLMs.
+
+#+begin_src C++
+  #include <iostream>
+#include <vector>
+#include <ranges>
+
+class FibonacciIterator {
+public:
+    FibonacciIterator() : a(0), b(1) {}
+
+    int operator*() {
+        return a;
+    }
+
+    FibonacciIterator& operator++() {
+        int temp = a;
+        a = b;
+        b += temp;
+        return *this;
+    }
+
+    bool operator!=(const FibonacciIterator& other) const {
+        return a != other.a;
+    }
+
+private:
+    int a, b;
+};
+
+class FibonacciRange {
+public:
+    FibonacciRange() = default;
+
+    FibonacciIterator begin() {
+        return FibonacciIterator();
+    }
+
+    FibonacciIterator end() {
+        // In a real use case, you'd have to decide when to stop generating Fibonacci numbers
+        // For this example, we'll just return an iterator that never ends
+        return FibonacciIterator();
+    }
+};
+
+int main() {
+    FibonacciRange fibonacci;
+
+    for (int x : fibonacci | std::views::take(10)) {
+        std::cout << x << " ";
+    }
+
+    return 0;
+}
+#+end_src
+
 ** DONE Printing a view
 CLOSED: [2023-10-22 Sun 17:28]
 Implement a utility for printing views.

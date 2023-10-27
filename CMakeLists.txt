@@ -3,6 +3,7 @@ project(puzzle_utils)
 
 set(CMAKE_BUILD_TYPE "Release")
 set(CMAKE_CXX_STANDARD 23)
+set(CMAKE_MODULE_PATH "${PROJECT_SOURCE_DIR}/cmake/Modules")
 
 # External libraries
 include(FetchContent)
@@ -36,6 +37,19 @@ FetchContent_MakeAvailable(Catch2)
 file(GLOB_RECURSE PZU_TEST_SRC "${PZU_DIR}/test/*.cpp")
 add_executable(pzu_test "${PZU_DIR}/test/test_main.cpp" "${PZU_TEST_SRC}")
 target_link_libraries(pzu_test PRIVATE pzu Catch2::Catch2WithMain)
+
+# pzu test code coverage
+include(CodeCoverage)
+add_executable(pzu_coverage "${PZU_SRC}" "${PZU_TEST_SRC}")
+target_link_libraries(pzu_coverage PRIVATE pzu Catch2::Catch2WithMain)
+set_target_properties(pzu_coverage PROPERTIES COMPILE_FLAGS
+  "${CMAKE_CXX_FLAGS} -O0 -Wall -fprofile-arcs -ftest-coverage")
+setup_target_for_coverage_lcov(
+  NAME pzu_coverage_report
+  EXECUTABLE pzu_coverage
+  BASE_DIRECTORY "${PZU_DIR}"
+  EXCLUDE "${PZU_DIR}/test/*" "build/_deps/*" "/usr/*"
+)
 
 # Examples
 set (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -g -Wall -O2 -Wextra")
