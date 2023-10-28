@@ -2,6 +2,12 @@
 :CATEGORY: puzzle_utils
 :END:
 
+* Project setup
+** DONE Add options to the cmake build
+CLOSED: [2023-10-28 Sat 20:49]
+Currently when we load the library elsewhere, all the build targets
+are also included, which is not what we want.
+
 * Documentation
 ** Latex
 *** TODO Introduce what are ranges, views, algorithms over them
@@ -44,7 +50,8 @@ Create the test suite with the existing pzu library examples.
 ** DONE Add test coverage utility
 CLOSED: [2023-10-27 Fri 15:39]
 
-** TODO Test suite in CI
+** DONE Test suite in CI
+CLOSED: [2023-10-28 Sat 20:26]
 ** DONE Add the non-regression test case on print
 CLOSED: [2023-10-25 Wed 19:18]
 This is:
@@ -75,6 +82,11 @@ Features:
 + We can do a variadic function, for multiple of X, Y, Z etc.
 + Generalize to all valid inputs for the ~%~ operator, try using an auto,
   or if it fails, an integral type.
+** TODO Generalize is_multiple_of to && and ||
+We may want all the numbers which are simultaneously the multiples of
+the given arguments, or which are the multiple of at least one of the arguments.
+Call it maybe like this: ~pzu::is_multiple_of<and>(3,5)~,
+~pzu::is_multiple_of<or>(3,5)~.
 
 ** TODO Unbounded sequence for Fibonacci
 Can probably look like this, thank you LLMs.

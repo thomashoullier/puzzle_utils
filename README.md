@@ -22,7 +22,7 @@ Switch to the `build/` directory.
 Run the following,
 
 ```shell
-cmake ..
+cmake -Dpzu_build_examples=ON ..
 make ex_iota
 ./ex_iota
 ```

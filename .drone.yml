@@ -18,7 +18,7 @@ steps:
   # Build
   - mkdir -p build
   - cd build
-  - cmake ..
+  - cmake -Dpzu_build_tests=ON -Dpzu_build_coverage=ON ..
   - make pzu_test
   # Tests
   - ./pzu_test
