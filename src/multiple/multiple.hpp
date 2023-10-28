@@ -1,9 +1,13 @@
+/** @file */
 #ifndef MULTIPLE_H
 #define MULTIPLE_H
 
 namespace pzu {
-  // Lambda of x for a predicate over the args: is x a multiple of all the args
-  // simulataneously?
+  /** @brief Return a lambda function for testing whether a number is
+  simultaneously a multiple to the provided arguments.
+
+  The number x being a multiple of arg means: x % arg == 0
+  */
   template <typename... Args>
   auto is_multiple_of (Args... args) {
     return [args...](const auto x) {
