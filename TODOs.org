@@ -3,13 +3,9 @@
 :END:
 
 * Documentation
-** Document standard functions
-See https://en.cppreference.com/w/cpp/ranges
-
-*** TODO Create doxygen documention of pzu
-We require only a description of the API of pzu.
-
+** Latex
 *** TODO Introduce what are ranges, views, algorithms over them
+See https://en.cppreference.com/w/cpp/ranges
 
 *** DONE Printing a range
 CLOSED: [2023-10-20 Fri 18:33]
@@ -33,6 +29,13 @@ initializer_list?
 + Used as a way to sum.
 
 *** TODO accumulate
+
+** Doxygen
+*** DONE Create doxygen documention of pzu
+CLOSED: [2023-10-28 Sat 08:02]
+We require only a description of the API of pzu.
+
+
 * Test suite
 ** DONE Initiate the test suite.
 CLOSED: [2023-10-24 Tue 21:31]
@@ -61,6 +64,7 @@ But we do not want it to add noise in the test report.
 + Where does ~fmt::print~ goes by default? I think to cstdio stdout, try
   disconnecting this.
 
+
 * Functions to implement
 ** DONE Create a library with its own namespace
 CLOSED: [2023-10-22 Sun 17:28]
@@ -76,7 +80,7 @@ Features:
 Can probably look like this, thank you LLMs.
 
 #+begin_src C++
-  #include <iostream>
+#include <iostream>
 #include <vector>
 #include <ranges>
 
@@ -141,6 +145,7 @@ Implement a utility for printing views.
 + Relevant links:
   + https://stackoverflow.com/questions/65676338/writing-a-c20-range-to-standard-output
   + https://stackoverflow.com/questions/74074633/how-do-you-make-a-pipeable-function-like-rangestot-with-range-v3-ranges
+
 
 * Maintenance
 ** HOLD Replace the external fmt library with the standard C++ when it becomes available
