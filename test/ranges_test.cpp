@@ -1,6 +1,6 @@
 #include "ranges_test.hpp"
 
-TEST_CASE("ranges", "[ranges]") {
+TEST_CASE("RangePrinter", "[RangePrinter]") {
   boost::iostreams::stream<boost::iostreams::null_sink>
     nullOstream((boost::iostreams::null_sink()));
   SECTION("calling") {
@@ -25,5 +25,13 @@ TEST_CASE("ranges", "[ranges]") {
     std::views::iota(1,20) | std::views::filter(even)
                            | pzu::RangePrinter(nullOstream);
     SUCCEED("Bug #1");
+  }
+}
+
+TEST_CASE("RangeSum", "[RangeSum]") {
+  SECTION("calling") {
+    auto s = std::views::iota(1,20) | pzu::rangeSum;
+    (void)s;
+    SUCCEED("rangeSum");
   }
 }

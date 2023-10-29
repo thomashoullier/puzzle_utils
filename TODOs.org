@@ -98,18 +98,8 @@ It would be called like so: ~is<multiple><all>(3,5)~.
 Only implement it when we encounter another predicate such as ~multiple~.
 Is there already something similar in the standard?
 
-** TODO Unbounded sequence for Fibonacci Can probably look like this, thank you
-LLMs. #+begin_src C++ #include <iostream> #include <vector> #include <ranges>
-class FibonacciIterator { public: FibonacciIterator() : a(0), b(1) {} int
-operator*() { return a; } FibonacciIterator& operator++() { int temp = a; a = b;
-b += temp; return *this; } bool operator!=(const FibonacciIterator& other) const
-{ return a != other.a; } private: int a, b; }; class FibonacciRange { public:
-FibonacciRange() = default; FibonacciIterator begin() { return
-FibonacciIterator(); } FibonacciIterator end() { // In a real use case, you'd
-have to decide when to stop generating Fibonacci numbers // For this example,
-we'll just return an iterator that never ends return FibonacciIterator(); } };
-int main() { FibonacciRange fibonacci; for (int x : fibonacci |
-std::views::take(10)) { std::cout << x << " "; } return 0; } #+end_src
+** TODO Unbounded sequence for Fibonacci
+
 ** DONE Printing a view
 CLOSED: [2023-10-22 Sun 17:28]
 Implement a utility for printing views.
@@ -129,7 +119,8 @@ CLOSED: [2023-10-29 Sun 10:25]
 + We must still be able to call ~pzu::RangePrinter(10)~.
 + Call like ~pzu::RangePrinter(std::cout, 10)~ by overloading.
 
-** TODO Sum of range items
+** DONE Sum of range items
+CLOSED: [2023-10-29 Sun 21:41]
 + Use fold_left over addition probably, as it seems to take the range elements
   one by one.
 + Implement as a pipable thing. It is an endpoint to pipes, no need to pass
