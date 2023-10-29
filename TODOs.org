@@ -129,6 +129,18 @@ CLOSED: [2023-10-29 Sun 10:25]
 + We must still be able to call ~pzu::RangePrinter(10)~.
 + Call like ~pzu::RangePrinter(std::cout, 10)~ by overloading.
 
+** TODO Sum of range items
++ Use fold_left over addition probably, as it seems to take the range elements
+  one by one.
++ Implement as a pipable thing. It is an endpoint to pipes, no need to pass
+  any range to the next adaptor.
++ Do not implement a number of elements to sum. This can be done with take
+  beforehand. fold_left does not have guards against infinite ranges either,
+  so we don't have to implement these either.
++ The solution is to just define a class RangeSum which is called with
+  an overloaded operator| over a range. It has a sum method which takes the
+  range and returns the sum.
+
 * Maintenance
 ** HOLD Replace the external fmt library with the standard C++ when it becomes available
 + Use the C++23 <print> header when it becomes implemented in gcc.

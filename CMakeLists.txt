@@ -72,4 +72,7 @@ target_link_libraries(ex_range_printing PRIVATE
 
 add_executable(ex_multiple "${EXAMPLES_DIR}/ex_multiple.cpp")
 target_link_libraries(ex_multiple PRIVATE pzu)
+
+add_executable(ex_range_sum "${EXAMPLES_DIR}/ex_range_sum.cpp")
+target_link_libraries(ex_range_sum PRIVATE pzu)
 endif()
