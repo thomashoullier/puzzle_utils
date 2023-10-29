@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['rangeprinter_2ehpp_14',['RangePrinter.hpp',['../RangePrinter_8hpp.html',1,'']]]
+  ['rangeprinter_2ehpp_18',['RangePrinter.hpp',['../RangePrinter_8hpp.html',1,'']]],
+  ['rangesum_2ehpp_19',['RangeSum.hpp',['../RangeSum_8hpp.html',1,'']]]
 ];
