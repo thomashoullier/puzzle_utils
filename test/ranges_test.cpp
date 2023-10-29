@@ -4,6 +4,9 @@ TEST_CASE("ranges", "[ranges]") {
   boost::iostreams::stream<boost::iostreams::null_sink>
     nullOstream((boost::iostreams::null_sink()));
   SECTION("calling") {
+    auto rp = pzu::RangePrinter(0);
+    (void)rp; // Silence unused warning
+    SUCCEED("Instantiating a RangePrinter(print_length)");
     auto range_toprint = std::views::iota(1,6);
     range_toprint | pzu::RangePrinter(nullOstream);
     SUCCEED("RangePrinter(ostream)");
