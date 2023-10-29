@@ -171,3 +171,7 @@ We can simplify them down to one constructor with default values.
 For ~print_length~, we wish to distinguish between user-provided value and
 default value, we can use ~std::optional~ tricks for this.
 -> We were not able to find a single constructor which works in all cases.
+
+** TODO RangePrinter: use const references everywhere
+It seems we have forgotten to pass arguments by const reference?
+Is there anything forbidding this?

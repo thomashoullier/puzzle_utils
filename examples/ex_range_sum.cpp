@@ -4,6 +4,21 @@
 #include <numeric>
 #include <pzu.hpp>
 
+class RangeSum {
+public:
+  RangeSum () {};
+
+  auto sum (const auto &range) const {
+    return std::reduce(range.begin(), range.end());
+  }
+};
+
+auto operator| (const auto &range, const RangeSum &rs) {
+  return rs.sum(range);
+}
+
+RangeSum rangeSum;
+
 int main () {
   auto r = std::views::iota(1,20);
   r | pzu::rangePrinter;
@@ -19,4 +34,8 @@ int main () {
   // reduce
   auto red_sum = std::reduce(r.begin(), r.end());
   std::cout << "reduce: " << red_sum << std::endl;
+
+  // pzu draft
+  auto pzu_sum = r | rangeSum;
+  std::cout << "pzu_sum: " << pzu_sum << std::endl;
 }
