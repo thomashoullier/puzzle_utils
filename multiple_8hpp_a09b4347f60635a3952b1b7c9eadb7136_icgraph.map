@@ -1,0 +1,6 @@
+<map id="pzu::is_multiple" name="pzu::is_multiple">
+<area shape="rect" id="node1" title="Defines what a multiple of two items is." alt="" coords="229,104,355,131"/>
+<area shape="rect" id="node2" href="$multiple_8hpp.html#a81d5f979b535b7b5d7f5eafc8c34d690" title="Return a lambda function for testing whether a given number is a multiple of the provided argument." alt="" coords="21,29,166,56"/>
+<area shape="rect" id="node3" href="$multiple_8hpp.html#a92bad72e0077fc1591db9c8de3a325ed" title="Return a lambda function for testing whether a number is a multiple of all of the provided arguments." alt="" coords="9,104,177,131"/>
+<area shape="rect" id="node4" href="$multiple_8hpp.html#adba31125d00403ecf2838bd111586d9a" title="Return a lambda function for testing whether a number is a multiple of any of the provided arguments." alt="" coords="5,179,181,205"/>
+</map>

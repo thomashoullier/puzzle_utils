@@ -80,54 +80,61 @@ $(function() {
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#ifndef RANGEPRINTER_HPP</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#define RANGEPRINTER_HPP</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160; </div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &lt;ranges&gt;</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &lt;fmt/ranges.h&gt;</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160; </div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="keyword">namespace </span>pzu {</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;  <span class="keyword">template</span> &lt;<span class="keyword">typename</span> R&gt;</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;  concept ViewableRange = std::ranges::viewable_range&lt;R&gt;;</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;  <span class="comment">// Views which trivially know their size.</span></div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;  <span class="keyword">template</span> &lt;<span class="keyword">typename</span> R&gt;</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;  concept SizedView = ViewableRange&lt;R&gt; &amp;&amp; std::ranges::sized_range&lt;R&gt;;</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;  <span class="comment">// Other views of unknown sizes.</span></div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;  <span class="keyword">template</span> &lt;<span class="keyword">typename</span> R&gt;</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;  concept OtherView = ViewableRange&lt;R&gt; &amp;&amp; (not std::ranges::sized_range&lt;R&gt;);</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
-<div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="classpzu_1_1RangePrinter.html">   19</a></span>&#160;  <span class="keyword">class </span><a class="code" href="classpzu_1_1RangePrinter.html">RangePrinter</a> {</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;  <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <a class="code" href="classpzu_1_1RangePrinter.html#a498a81ceecf57aa3be68dde9a33821da">RangePrinter</a> ();</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <a class="code" href="classpzu_1_1RangePrinter.html#a498a81ceecf57aa3be68dde9a33821da">RangePrinter</a> (std::size_t _print_length);</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
-<div class="line"><a name="l00027"></a><span class="lineno"><a class="line" href="classpzu_1_1RangePrinter.html#aef9f2758627a9546fdf5788f36c095ed">   27</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classpzu_1_1RangePrinter.html#aef9f2758627a9546fdf5788f36c095ed">print</a> (SizedView <span class="keyword">auto</span> range) {</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;      (<a class="code" href="classpzu_1_1RangePrinter.html#a37a162a8155e32cdd3df9b03ad17eebf">length_set</a>) ?</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        fmt::print(<span class="stringliteral">&quot;{}\n&quot;</span>, range | std::views::take(<a class="code" href="classpzu_1_1RangePrinter.html#aacf5eea812c447c15959b18bcc34f35f">print_length</a>))</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        : fmt::print(<span class="stringliteral">&quot;{}\n&quot;</span>, range);</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    }</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
-<div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="classpzu_1_1RangePrinter.html#af99a9c4ac1b4c67144c5f64db38fafb8">   34</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classpzu_1_1RangePrinter.html#af99a9c4ac1b4c67144c5f64db38fafb8">print</a> (OtherView <span class="keyword">auto</span> range) {</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;      fmt::print(<span class="stringliteral">&quot;{}\n&quot;</span>, range | std::views::take(<a class="code" href="classpzu_1_1RangePrinter.html#aacf5eea812c447c15959b18bcc34f35f">print_length</a>));</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    }</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;  <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00040"></a><span class="lineno"><a class="line" href="classpzu_1_1RangePrinter.html#aacf5eea812c447c15959b18bcc34f35f">   40</a></span>&#160;    std::size_t <a class="code" href="classpzu_1_1RangePrinter.html#aacf5eea812c447c15959b18bcc34f35f">print_length</a>;</div>
-<div class="line"><a name="l00042"></a><span class="lineno"><a class="line" href="classpzu_1_1RangePrinter.html#a37a162a8155e32cdd3df9b03ad17eebf">   42</a></span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classpzu_1_1RangePrinter.html#a37a162a8155e32cdd3df9b03ad17eebf">length_set</a>;</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;  };</div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &lt;iostream&gt;</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &lt;ranges&gt;</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &lt;fmt/ranges.h&gt;</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160; </div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="keyword">namespace </span>pzu {</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;  <span class="keyword">template</span> &lt;<span class="keyword">typename</span> R&gt;</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;  concept ViewableRange = std::ranges::viewable_range&lt;R&gt;;</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;  <span class="comment">// Views which trivially know their size.</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;  <span class="keyword">template</span> &lt;<span class="keyword">typename</span> R&gt;</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;  concept SizedView = ViewableRange&lt;R&gt; &amp;&amp; std::ranges::sized_range&lt;R&gt;;</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;  <span class="comment">// Views of unknown sizes (finite or infinite).</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;  <span class="keyword">template</span> &lt;<span class="keyword">typename</span> R&gt;</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;  concept UnsizedView = ViewableRange&lt;R&gt; &amp;&amp; (not std::ranges::sized_range&lt;R&gt;);</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
+<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="classpzu_1_1RangePrinter.html">   20</a></span>&#160;  <span class="keyword">class </span><a class="code" href="classpzu_1_1RangePrinter.html">RangePrinter</a> {</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;  <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <a class="code" href="classpzu_1_1RangePrinter.html#a498a81ceecf57aa3be68dde9a33821da">RangePrinter</a> ();</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <a class="code" href="classpzu_1_1RangePrinter.html#a498a81ceecf57aa3be68dde9a33821da">RangePrinter</a> (std::size_t _print_length);</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <a class="code" href="classpzu_1_1RangePrinter.html#a498a81ceecf57aa3be68dde9a33821da">RangePrinter</a> (std::ostream &amp;_ostream);</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <a class="code" href="classpzu_1_1RangePrinter.html#a498a81ceecf57aa3be68dde9a33821da">RangePrinter</a> (std::ostream &amp;_ostream, std::size_t _print_length);</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
+<div class="line"><a name="l00032"></a><span class="lineno"><a class="line" href="classpzu_1_1RangePrinter.html#aef9f2758627a9546fdf5788f36c095ed">   32</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classpzu_1_1RangePrinter.html#aef9f2758627a9546fdf5788f36c095ed">print</a> (SizedView <span class="keyword">auto</span> range) {</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;      <span class="keyword">auto</span> str = (<a class="code" href="classpzu_1_1RangePrinter.html#a37a162a8155e32cdd3df9b03ad17eebf">length_set</a>) ?</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        fmt::format(<span class="stringliteral">&quot;{}\n&quot;</span>, range | std::views::take(<a class="code" href="classpzu_1_1RangePrinter.html#aacf5eea812c447c15959b18bcc34f35f">print_length</a>))</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        : fmt::format(<span class="stringliteral">&quot;{}\n&quot;</span>, range);</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;      (*ostream) &lt;&lt; str;</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    }</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; </div>
+<div class="line"><a name="l00040"></a><span class="lineno"><a class="line" href="classpzu_1_1RangePrinter.html#a4196272f5f7900f8b4966dc9f5acc954">   40</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classpzu_1_1RangePrinter.html#a4196272f5f7900f8b4966dc9f5acc954">print</a> (UnsizedView <span class="keyword">auto</span> range) {</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;      <span class="keyword">auto</span> str = fmt::format(<span class="stringliteral">&quot;{}\n&quot;</span>, range | std::views::take(<a class="code" href="classpzu_1_1RangePrinter.html#aacf5eea812c447c15959b18bcc34f35f">print_length</a>));</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;      (*ostream) &lt;&lt; str;</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    }</div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160; </div>
-<div class="line"><a name="l00046"></a><span class="lineno"><a class="line" href="RangePrinter_8hpp.html#a40645e4923a9a5cd22b4619f1ccc2002">   46</a></span>&#160;  <span class="keyword">auto</span> operator| (<span class="keyword">const</span> ViewableRange <span class="keyword">auto</span> &amp;range, <a class="code" href="classpzu_1_1RangePrinter.html">RangePrinter</a> rp) -&gt; decltype(range) {</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    rp.print(range);</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="keywordflow">return</span> range;</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;  }</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160; </div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;  <span class="keyword">extern</span> RangePrinter rangePrinter;</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;}</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160; </div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="preprocessor">#endif </span><span class="comment">// RANGEPRINTER_HPP</span></div>
-<div class="ttc" id="aclasspzu_1_1RangePrinter_html"><div class="ttname"><a href="classpzu_1_1RangePrinter.html">pzu::RangePrinter</a></div><div class="ttdoc">Class for printing ranges.</div><div class="ttdef"><b>Definition:</b> RangePrinter.hpp:19</div></div>
-<div class="ttc" id="aclasspzu_1_1RangePrinter_html_a37a162a8155e32cdd3df9b03ad17eebf"><div class="ttname"><a href="classpzu_1_1RangePrinter.html#a37a162a8155e32cdd3df9b03ad17eebf">pzu::RangePrinter::length_set</a></div><div class="ttdeci">bool length_set</div><div class="ttdoc">Was the print length set by the user?</div><div class="ttdef"><b>Definition:</b> RangePrinter.hpp:42</div></div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;  <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00047"></a><span class="lineno"><a class="line" href="classpzu_1_1RangePrinter.html#aacf5eea812c447c15959b18bcc34f35f">   47</a></span>&#160;    std::size_t <a class="code" href="classpzu_1_1RangePrinter.html#aacf5eea812c447c15959b18bcc34f35f">print_length</a>;</div>
+<div class="line"><a name="l00049"></a><span class="lineno"><a class="line" href="classpzu_1_1RangePrinter.html#a37a162a8155e32cdd3df9b03ad17eebf">   49</a></span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classpzu_1_1RangePrinter.html#a37a162a8155e32cdd3df9b03ad17eebf">length_set</a>;</div>
+<div class="line"><a name="l00051"></a><span class="lineno"><a class="line" href="classpzu_1_1RangePrinter.html#acd5d947c8d2e33005c2e7d56d16fbf5d">   51</a></span>&#160;    std::ostream *<a class="code" href="classpzu_1_1RangePrinter.html#acd5d947c8d2e33005c2e7d56d16fbf5d">ostream</a>;</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;  };</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160; </div>
+<div class="line"><a name="l00055"></a><span class="lineno"><a class="line" href="RangePrinter_8hpp.html#a40645e4923a9a5cd22b4619f1ccc2002">   55</a></span>&#160;  <span class="keyword">auto</span> operator| (<span class="keyword">const</span> ViewableRange <span class="keyword">auto</span> &amp;range, <a class="code" href="classpzu_1_1RangePrinter.html">RangePrinter</a> rp) -&gt; decltype(range) {</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    rp.print(range);</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="keywordflow">return</span> range;</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;  }</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160; </div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;  <span class="keyword">extern</span> RangePrinter rangePrinter;</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;}</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160; </div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;<span class="preprocessor">#endif </span><span class="comment">// RANGEPRINTER_HPP</span></div>
+<div class="ttc" id="aclasspzu_1_1RangePrinter_html"><div class="ttname"><a href="classpzu_1_1RangePrinter.html">pzu::RangePrinter</a></div><div class="ttdoc">Class for printing ranges.</div><div class="ttdef"><b>Definition:</b> RangePrinter.hpp:20</div></div>
+<div class="ttc" id="aclasspzu_1_1RangePrinter_html_a37a162a8155e32cdd3df9b03ad17eebf"><div class="ttname"><a href="classpzu_1_1RangePrinter.html#a37a162a8155e32cdd3df9b03ad17eebf">pzu::RangePrinter::length_set</a></div><div class="ttdeci">bool length_set</div><div class="ttdoc">Was the print length set by the user?</div><div class="ttdef"><b>Definition:</b> RangePrinter.hpp:49</div></div>
+<div class="ttc" id="aclasspzu_1_1RangePrinter_html_a4196272f5f7900f8b4966dc9f5acc954"><div class="ttname"><a href="classpzu_1_1RangePrinter.html#a4196272f5f7900f8b4966dc9f5acc954">pzu::RangePrinter::print</a></div><div class="ttdeci">void print(UnsizedView auto range)</div><div class="ttdoc">Print an UnsizedView, of unknown length.</div><div class="ttdef"><b>Definition:</b> RangePrinter.hpp:40</div></div>
 <div class="ttc" id="aclasspzu_1_1RangePrinter_html_a498a81ceecf57aa3be68dde9a33821da"><div class="ttname"><a href="classpzu_1_1RangePrinter.html#a498a81ceecf57aa3be68dde9a33821da">pzu::RangePrinter::RangePrinter</a></div><div class="ttdeci">RangePrinter()</div><div class="ttdoc">Default constructor.</div><div class="ttdef"><b>Definition:</b> RangePrinter.cpp:4</div></div>
-<div class="ttc" id="aclasspzu_1_1RangePrinter_html_aacf5eea812c447c15959b18bcc34f35f"><div class="ttname"><a href="classpzu_1_1RangePrinter.html#aacf5eea812c447c15959b18bcc34f35f">pzu::RangePrinter::print_length</a></div><div class="ttdeci">std::size_t print_length</div><div class="ttdoc">Number of items to print from the range.</div><div class="ttdef"><b>Definition:</b> RangePrinter.hpp:40</div></div>
-<div class="ttc" id="aclasspzu_1_1RangePrinter_html_aef9f2758627a9546fdf5788f36c095ed"><div class="ttname"><a href="classpzu_1_1RangePrinter.html#aef9f2758627a9546fdf5788f36c095ed">pzu::RangePrinter::print</a></div><div class="ttdeci">void print(SizedView auto range)</div><div class="ttdoc">Print a SizedView.</div><div class="ttdef"><b>Definition:</b> RangePrinter.hpp:27</div></div>
-<div class="ttc" id="aclasspzu_1_1RangePrinter_html_af99a9c4ac1b4c67144c5f64db38fafb8"><div class="ttname"><a href="classpzu_1_1RangePrinter.html#af99a9c4ac1b4c67144c5f64db38fafb8">pzu::RangePrinter::print</a></div><div class="ttdeci">void print(OtherView auto range)</div><div class="ttdoc">Print an OtherView, of unknown length.</div><div class="ttdef"><b>Definition:</b> RangePrinter.hpp:34</div></div>
+<div class="ttc" id="aclasspzu_1_1RangePrinter_html_aacf5eea812c447c15959b18bcc34f35f"><div class="ttname"><a href="classpzu_1_1RangePrinter.html#aacf5eea812c447c15959b18bcc34f35f">pzu::RangePrinter::print_length</a></div><div class="ttdeci">std::size_t print_length</div><div class="ttdoc">Number of items to print from the range.</div><div class="ttdef"><b>Definition:</b> RangePrinter.hpp:47</div></div>
+<div class="ttc" id="aclasspzu_1_1RangePrinter_html_acd5d947c8d2e33005c2e7d56d16fbf5d"><div class="ttname"><a href="classpzu_1_1RangePrinter.html#acd5d947c8d2e33005c2e7d56d16fbf5d">pzu::RangePrinter::ostream</a></div><div class="ttdeci">std::ostream * ostream</div><div class="ttdoc">The stream to print to.</div><div class="ttdef"><b>Definition:</b> RangePrinter.hpp:51</div></div>
+<div class="ttc" id="aclasspzu_1_1RangePrinter_html_aef9f2758627a9546fdf5788f36c095ed"><div class="ttname"><a href="classpzu_1_1RangePrinter.html#aef9f2758627a9546fdf5788f36c095ed">pzu::RangePrinter::print</a></div><div class="ttdeci">void print(SizedView auto range)</div><div class="ttdoc">Print a SizedView.</div><div class="ttdef"><b>Definition:</b> RangePrinter.hpp:32</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

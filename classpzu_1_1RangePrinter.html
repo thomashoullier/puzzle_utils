@@ -85,6 +85,12 @@ $(function() {
  <a href="classpzu_1_1RangePrinter.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="RangePrinter_8hpp_source.html">RangePrinter.hpp</a>&gt;</code></p>
+<div class="dynheader">
+Collaboration diagram for pzu::RangePrinter:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classpzu_1_1RangePrinter__coll__graph.svg" width="182" height="370"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+<center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -96,14 +102,22 @@ Public Member Functions</h2></td></tr>
 &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpzu_1_1RangePrinter.html#af8444a1289c26e2aa975a7cfd7b4ff62">RangePrinter</a> (std::size_t _print_length)</td></tr>
 <tr class="memdesc:af8444a1289c26e2aa975a7cfd7b4ff62"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor with provided length of printing. <br /></td></tr>
 <tr class="separator:af8444a1289c26e2aa975a7cfd7b4ff62"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a41e5f359227d4383db599866fbb21e62"><td class="memItemLeft" align="right" valign="top"><a id="a41e5f359227d4383db599866fbb21e62"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpzu_1_1RangePrinter.html#a41e5f359227d4383db599866fbb21e62">RangePrinter</a> (std::ostream &amp;_ostream)</td></tr>
+<tr class="memdesc:a41e5f359227d4383db599866fbb21e62"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor with provided ostream. <br /></td></tr>
+<tr class="separator:a41e5f359227d4383db599866fbb21e62"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa740e4e209e610df7c882c2ee4890de9"><td class="memItemLeft" align="right" valign="top"><a id="aa740e4e209e610df7c882c2ee4890de9"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpzu_1_1RangePrinter.html#aa740e4e209e610df7c882c2ee4890de9">RangePrinter</a> (std::ostream &amp;_ostream, std::size_t _print_length)</td></tr>
+<tr class="memdesc:aa740e4e209e610df7c882c2ee4890de9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor with ostream and length of printing. <br /></td></tr>
+<tr class="separator:aa740e4e209e610df7c882c2ee4890de9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aef9f2758627a9546fdf5788f36c095ed"><td class="memItemLeft" align="right" valign="top"><a id="aef9f2758627a9546fdf5788f36c095ed"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpzu_1_1RangePrinter.html#aef9f2758627a9546fdf5788f36c095ed">print</a> (SizedView auto range)</td></tr>
 <tr class="memdesc:aef9f2758627a9546fdf5788f36c095ed"><td class="mdescLeft">&#160;</td><td class="mdescRight">Print a SizedView. <br /></td></tr>
 <tr class="separator:aef9f2758627a9546fdf5788f36c095ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af99a9c4ac1b4c67144c5f64db38fafb8"><td class="memItemLeft" align="right" valign="top"><a id="af99a9c4ac1b4c67144c5f64db38fafb8"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpzu_1_1RangePrinter.html#af99a9c4ac1b4c67144c5f64db38fafb8">print</a> (OtherView auto range)</td></tr>
-<tr class="memdesc:af99a9c4ac1b4c67144c5f64db38fafb8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Print an OtherView, of unknown length. <br /></td></tr>
-<tr class="separator:af99a9c4ac1b4c67144c5f64db38fafb8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4196272f5f7900f8b4966dc9f5acc954"><td class="memItemLeft" align="right" valign="top"><a id="a4196272f5f7900f8b4966dc9f5acc954"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpzu_1_1RangePrinter.html#a4196272f5f7900f8b4966dc9f5acc954">print</a> (UnsizedView auto range)</td></tr>
+<tr class="memdesc:a4196272f5f7900f8b4966dc9f5acc954"><td class="mdescLeft">&#160;</td><td class="mdescRight">Print an UnsizedView, of unknown length. <br /></td></tr>
+<tr class="separator:a4196272f5f7900f8b4966dc9f5acc954"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
@@ -115,6 +129,10 @@ std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" hre
 bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpzu_1_1RangePrinter.html#a37a162a8155e32cdd3df9b03ad17eebf">length_set</a></td></tr>
 <tr class="memdesc:a37a162a8155e32cdd3df9b03ad17eebf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Was the print length set by the user? <br /></td></tr>
 <tr class="separator:a37a162a8155e32cdd3df9b03ad17eebf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acd5d947c8d2e33005c2e7d56d16fbf5d"><td class="memItemLeft" align="right" valign="top"><a id="acd5d947c8d2e33005c2e7d56d16fbf5d"></a>
+std::ostream *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpzu_1_1RangePrinter.html#acd5d947c8d2e33005c2e7d56d16fbf5d">ostream</a></td></tr>
+<tr class="memdesc:acd5d947c8d2e33005c2e7d56d16fbf5d"><td class="mdescLeft">&#160;</td><td class="mdescRight">The stream to print to. <br /></td></tr>
+<tr class="separator:acd5d947c8d2e33005c2e7d56d16fbf5d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Class for printing ranges. </p>

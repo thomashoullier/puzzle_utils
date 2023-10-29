@@ -89,42 +89,64 @@ This graph shows which files directly or indirectly include this file:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:aeac3e3832a8959925d9ea49582c067d2"><td class="memTemplParams" colspan="2">template&lt;typename... Args&gt; </td></tr>
-<tr class="memitem:aeac3e3832a8959925d9ea49582c067d2"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="multiple_8hpp.html#aeac3e3832a8959925d9ea49582c067d2">pzu::is_multiple_of</a> (Args... args)</td></tr>
-<tr class="memdesc:aeac3e3832a8959925d9ea49582c067d2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return a lambda function for testing whether a number is simultaneously a multiple to the provided arguments.  <a href="multiple_8hpp.html#aeac3e3832a8959925d9ea49582c067d2">More...</a><br /></td></tr>
-<tr class="separator:aeac3e3832a8959925d9ea49582c067d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a09b4347f60635a3952b1b7c9eadb7136"><td class="memItemLeft" align="right" valign="top">const auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="multiple_8hpp.html#a09b4347f60635a3952b1b7c9eadb7136">pzu::is_multiple</a> (const auto x, const auto y)</td></tr>
+<tr class="memdesc:a09b4347f60635a3952b1b7c9eadb7136"><td class="mdescLeft">&#160;</td><td class="mdescRight">Defines what a multiple of two items is.  <a href="multiple_8hpp.html#a09b4347f60635a3952b1b7c9eadb7136">More...</a><br /></td></tr>
+<tr class="separator:a09b4347f60635a3952b1b7c9eadb7136"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a81d5f979b535b7b5d7f5eafc8c34d690"><td class="memTemplParams" colspan="2"><a id="a81d5f979b535b7b5d7f5eafc8c34d690"></a>
+template&lt;typename Arg &gt; </td></tr>
+<tr class="memitem:a81d5f979b535b7b5d7f5eafc8c34d690"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="multiple_8hpp.html#a81d5f979b535b7b5d7f5eafc8c34d690">pzu::is_multiple_of</a> (Arg arg)</td></tr>
+<tr class="memdesc:a81d5f979b535b7b5d7f5eafc8c34d690"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return a lambda function for testing whether a given number is a multiple of the provided argument. <br /></td></tr>
+<tr class="separator:a81d5f979b535b7b5d7f5eafc8c34d690"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adba31125d00403ecf2838bd111586d9a"><td class="memTemplParams" colspan="2"><a id="adba31125d00403ecf2838bd111586d9a"></a>
+template&lt;typename... Args&gt; </td></tr>
+<tr class="memitem:adba31125d00403ecf2838bd111586d9a"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="multiple_8hpp.html#adba31125d00403ecf2838bd111586d9a">pzu::is_multiple_of_any</a> (Args... args)</td></tr>
+<tr class="memdesc:adba31125d00403ecf2838bd111586d9a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return a lambda function for testing whether a number is a multiple of any of the provided arguments. <br /></td></tr>
+<tr class="separator:adba31125d00403ecf2838bd111586d9a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a92bad72e0077fc1591db9c8de3a325ed"><td class="memTemplParams" colspan="2"><a id="a92bad72e0077fc1591db9c8de3a325ed"></a>
+template&lt;typename... Args&gt; </td></tr>
+<tr class="memitem:a92bad72e0077fc1591db9c8de3a325ed"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="multiple_8hpp.html#a92bad72e0077fc1591db9c8de3a325ed">pzu::is_multiple_of_all</a> (Args... args)</td></tr>
+<tr class="memdesc:a92bad72e0077fc1591db9c8de3a325ed"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return a lambda function for testing whether a number is a multiple of all of the provided arguments. <br /></td></tr>
+<tr class="separator:a92bad72e0077fc1591db9c8de3a325ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
-<a id="aeac3e3832a8959925d9ea49582c067d2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aeac3e3832a8959925d9ea49582c067d2">&#9670;&nbsp;</a></span>is_multiple_of()</h2>
+<a id="a09b4347f60635a3952b1b7c9eadb7136"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a09b4347f60635a3952b1b7c9eadb7136">&#9670;&nbsp;</a></span>is_multiple()</h2>
 
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;typename... Args&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">auto pzu::is_multiple_of </td>
+          <td class="memname">const auto pzu::is_multiple </td>
           <td>(</td>
-          <td class="paramtype">Args...&#160;</td>
-          <td class="paramname"><em>args</em></td><td>)</td>
+          <td class="paramtype">const auto&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">const auto&#160;</td>
+          <td class="paramname"><em>y</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Return a lambda function for testing whether a number is simultaneously a multiple to the provided arguments. </p>
-<p>The number x being a multiple of arg means: x % arg == 0 </p>
+<p>Defines what a multiple of two items is. </p>
+<p>x is a multiple of y if (x % y == 0) </p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="multiple_8hpp_aeac3e3832a8959925d9ea49582c067d2_cgraph.svg" width="156" height="62"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="multiple_8hpp_a09b4347f60635a3952b1b7c9eadb7136_cgraph.svg" width="136" height="62"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="multiple_8hpp_aeac3e3832a8959925d9ea49582c067d2_icgraph.svg" width="156" height="62"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="multiple_8hpp_a09b4347f60635a3952b1b7c9eadb7136_icgraph.svg" width="360" height="211"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 
