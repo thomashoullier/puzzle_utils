@@ -18,6 +18,8 @@ int main () {
   // With pzu.
   range_toprint | pzu::rangePrinter;
   range_toprint | pzu::RangePrinter(3);
+  range_toprint | pzu::RangePrinter(std::cout);
+  range_toprint | pzu::RangePrinter(std::cout, 3);
   std::views::iota(1) | pzu::rangePrinter
                       | std::views::take(2)
                       | pzu::rangePrinter;

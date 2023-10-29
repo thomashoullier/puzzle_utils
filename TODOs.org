@@ -121,7 +121,8 @@ Implement a utility for printing views.
   + https://stackoverflow.com/questions/65676338/writing-a-c20-range-to-standard-output
   + https://stackoverflow.com/questions/74074633/how-do-you-make-a-pipeable-function-like-rangestot-with-range-v3-ranges
 
-** TODO Add the option for RangePrinter to print to a different output stream.
+** DONE Add the option for RangePrinter to print to a different output stream.
+CLOSED: [2023-10-29 Sun 10:25]
 + The default must still be std::cout.
 + We must still be able to call ~pzu::RangePrinter(10)~.
 + Call like ~pzu::RangePrinter(std::cout, 10)~ by overloading.
@@ -143,3 +144,15 @@ We have solved the bug by changing the print RangePrinter method from:
 ~print (const View auto &range)~ to ~print (View auto range)~.
 I think the reason may be that some ranges do need to modify their state
 in order to know their length?
+
+** TODO Simplify RangePrinter print method
+We can have a private method ~format~ for generating a format string depending
+on the range type.
+The rationale is we want to avoid repeating ~(*ostream) << str~ twice, and hide
+the complexity in private methods.
+
+** TODO Simplify RangePrinter constructors
+We have four heavily redundant constructors.
+We can simplify them down to one constructor with default values.
+For ~print_length~, we wish to distinguish between user-provided value and
+default value, we can use ~std::optional~ tricks for this.

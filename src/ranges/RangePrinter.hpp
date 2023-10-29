@@ -2,6 +2,7 @@
 #ifndef RANGEPRINTER_HPP
 #define RANGEPRINTER_HPP
 
+#include <iostream>
 #include <ranges>
 #include <fmt/ranges.h>
 
@@ -22,17 +23,23 @@ namespace pzu {
     RangePrinter ();
     /** @brief Constructor with provided length of printing. */
     RangePrinter (std::size_t _print_length);
+    /** @brief Constructor with provided ostream. */
+    RangePrinter (std::ostream &_ostream);
+    /** @brief Constructor with ostream and length of printing. */
+    RangePrinter (std::ostream &_ostream, std::size_t _print_length);
 
     /** @brief Print a SizedView. */
     void print (SizedView auto range) {
-      (length_set) ?
-        fmt::print("{}\n", range | std::views::take(print_length))
-        : fmt::print("{}\n", range);
+      auto str = (length_set) ?
+        fmt::format("{}\n", range | std::views::take(print_length))
+        : fmt::format("{}\n", range);
+      (*ostream) << str;
     }
 
     /** @brief Print an UnsizedView, of unknown length. */
     void print (UnsizedView auto range) {
-      fmt::print("{}\n", range | std::views::take(print_length));
+      auto str = fmt::format("{}\n", range | std::views::take(print_length));
+      (*ostream) << str;
     }
 
   private:
@@ -40,6 +47,8 @@ namespace pzu {
     std::size_t print_length;
     /** @brief Was the print length set by the user? */
     bool length_set;
+    /** @brief The stream to print to. */
+    std::ostream *ostream;
   };
 
   /** @brief Pipe operator overloading for RangePrinter. */
