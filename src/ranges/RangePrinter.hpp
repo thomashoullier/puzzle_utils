@@ -11,9 +11,9 @@ namespace pzu {
   // Views which trivially know their size.
   template <typename R>
   concept SizedView = ViewableRange<R> && std::ranges::sized_range<R>;
-  // Other views of unknown sizes.
+  // Views of unknown sizes (finite or infinite).
   template <typename R>
-  concept OtherView = ViewableRange<R> && (not std::ranges::sized_range<R>);
+  concept UnsizedView = ViewableRange<R> && (not std::ranges::sized_range<R>);
 
   /** @brief Class for printing ranges. */
   class RangePrinter {
@@ -30,8 +30,8 @@ namespace pzu {
         : fmt::print("{}\n", range);
     }
 
-    /** @brief Print an OtherView, of unknown length. */
-    void print (OtherView auto range) {
+    /** @brief Print an UnsizedView, of unknown length. */
+    void print (UnsizedView auto range) {
       fmt::print("{}\n", range | std::views::take(print_length));
     }
 
