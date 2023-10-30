@@ -163,6 +163,10 @@ For ~print_length~, we wish to distinguish between user-provided value and
 default value, we can use ~std::optional~ tricks for this.
 -> We were not able to find a single constructor which works in all cases.
 
-** TODO RangePrinter: use const references everywhere
+** DONE RangePrinter: use const references everywhere
+CLOSED: [2023-10-30 Mon 18:43]
 It seems we have forgotten to pass arguments by const reference?
 Is there anything forbidding this?
+
++ The operation ~range | std::views::take()~ cannot work on a const reference to
+  range.

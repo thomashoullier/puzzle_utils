@@ -29,7 +29,7 @@ namespace pzu {
     RangePrinter (std::ostream &_ostream, std::size_t _print_length);
 
     /** @brief Print a SizedView. */
-    void print (SizedView auto range) {
+    void print (SizedView auto range) const {
       auto str = (length_set) ?
         fmt::format("{}\n", range | std::views::take(print_length))
         : fmt::format("{}\n", range);
@@ -37,7 +37,7 @@ namespace pzu {
     }
 
     /** @brief Print an UnsizedView, of unknown length. */
-    void print (UnsizedView auto range) {
+    void print (UnsizedView auto range) const {
       auto str = fmt::format("{}\n", range | std::views::take(print_length));
       (*ostream) << str;
     }
@@ -52,7 +52,8 @@ namespace pzu {
   };
 
   /** @brief Pipe operator overloading for RangePrinter. */
-  auto operator| (const ViewableRange auto &range, RangePrinter rp) -> decltype(range) {
+  auto operator| (const ViewableRange auto &range, const RangePrinter &rp) ->
+    decltype(range) {
     rp.print(range);
     return range;
   }
