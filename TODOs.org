@@ -74,6 +74,10 @@ But we do not want it to add noise in the test report.
 
 -> We outputted to a nullstream in the tests.
 
+** DONE Add project euler problems to the test suite
+CLOSED: [2023-10-30 Mon 19:55]
++ Validate the results explicitely.
+
 * Functions to implement
 ** DONE Create a library with its own namespace
 CLOSED: [2023-10-22 Sun 17:28]
@@ -170,3 +174,13 @@ Is there anything forbidding this?
 
 + The operation ~range | std::views::take()~ cannot work on a const reference to
   range.
+
+** DONE BUG: Project Euler problem 1.
+CLOSED: [2023-10-30 Mon 19:55]
+This code does not compile:
+
+#+begin_src C++
+  auto pzu_sum = std::views::iota(1,1000)
+    | std::views::filter(pzu::is_multiple_of_any(3,5))
+    | pzu::rangeSum;
+#+end_src

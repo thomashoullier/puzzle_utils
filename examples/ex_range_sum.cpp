@@ -20,7 +20,7 @@ int main () {
   auto red_sum = std::reduce(r.begin(), r.end());
   std::cout << "reduce: " << red_sum << std::endl;
 
-  // pzu draft
+  // pzu
   auto pzu_sum = r | pzu::rangeSum;
   std::cout << "pzu_sum: " << pzu_sum << std::endl;
 }

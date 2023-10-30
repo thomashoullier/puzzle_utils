@@ -12,7 +12,7 @@ namespace pzu {
     RangeSum () {};
 
     /** @brief Sum method over a range. */
-    auto sum (const auto &range) const {
+    auto sum (auto range) const {
       return std::reduce(range.begin(), range.end());
     }
   };

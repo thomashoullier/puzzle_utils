@@ -5,5 +5,6 @@
 
 #include "ranges_test.hpp"
 #include "multiple_test.hpp"
+#include "project_euler_test.hpp"
 
 #endif // TEST_MAIN_H
