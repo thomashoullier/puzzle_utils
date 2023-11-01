@@ -1,0 +1,74 @@
+%% Bibliography associated with puzzle_utils.
+
+@Conference{Brindle2019,
+  author       = {Tristan Brindle},
+  booktitle    = {CppCon},
+  title        = {An Overview of Standard Ranges},
+  year         = {2019},
+  url          = {https://youtu.be/3MBtLeyJKg0},
+  comment      = {
+  * Ranges are introduced in C++20.
+  * They are a major update in continuation to the STL algorithms.
+  * A range is something on which begin() and end() can be called.
+    It usually returns an iterator.
+  * C++20 also introduces concepts, which can be used to constrain template
+    instantiations. So called 'constrained algorithms' in the standard are
+    algorithms using concepts.
+  * We can optimize away some container size checks by indicating
+    with an unreachable sentinel that the algorithm will never reach the
+    end of the container.
+  * Projection is a unary callable passed to algorithms.
+    It modifies the view which the algorithm sees.
+    For instance, we can sort a vector by a specific data field of the items.
+    We can use pointers to member data to specify the data fields.
+  * Views are a way to better compose standard algorithms, in a lazy fashion.
+    The lazy evaluation is offered by range adaptors.
+    Range adaptors can be called with a pipe syntax.},
+}
+
+@Conference{Brindle2021,
+  author       = {Tristan Brindle},
+  booktitle    = {CppCon},
+  title        = {Conquering {C++20} {Ranges}},
+  year         = {2021},
+  url          = {https://youtu.be/3MBtLeyJKg0},
+  comment      = {
+  Presents three problems treated with ranges.
+  1. Least element of an array
+    * std::min_element(vec.begin(), vec.end())
+    * std::ranges::min_element(vec);
+    * vec should be a l-value, and not an r-value.
+    * Borrowed ranges are views into other ranges.
+      They can return iterators into the parent ranges safely.
+    * A view is a range which:
+      * is default constructible,
+      * has constant-time move and destruction
+      * has constant-time copy operations.
+    * Views can be passed around by value without worrying about cost.
+    * Views and borrowed ranges are distinct concepts.
+    * All borrowed ranges can be converted to views using views::all.
+    * views and borrowed ranges are both 'viewable ranges'.
+    * Range adaptors only operate on viewable ranges.
+  2. Sum of squares
+    * We can use views::common to convert views to objects compatible with
+      C++17 algorithms. It changes the type of the end() sentinel.
+    * C++20 does not have a range-ified version of std::accumulate.
+      It should be included in C++23, all <numeric> algorithms.
+  3. String trimming
+    * There should be a ranges::to<std::string> in C++23 to convert ranges into
+      strings and other things.
+    * We can compose range adaptors by returning them from functions directly.
+      They can be used with the pipe syntax natively. We don't even have to
+      manipulate the ranges in the building of the adaptor.
+    * These custom adaptors can be declared as inline constexpr since they
+      do not depend on their arguments.},
+}
+
+@Misc{Grimm2023,
+  author       = {Rainer Grimm},
+  howpublished = {Online},
+  month        = sep,
+  title        = {{C++23}: {R}anges {I}mprovements and std::generator},
+  year         = {2023},
+  url          = {https://www.modernescpp.com/index.php/c23-ranges-improvements-and-stdgenerator/},
+}
