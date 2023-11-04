@@ -187,3 +187,15 @@ This code does not compile:
     | std::views::filter(pzu::is_multiple_of_any(3,5))
     | pzu::rangeSum;
 #+end_src
+
+** TODO Are our pipeable objects range adaptors?
+With range adaptors, we can do things like composing them without providing a
+range.
+Can we do that here?
+
+Something like ~auto foo = take(10) | rangePrinter~ and then ~range | foo~.
+
+** HOLD Use std::generator when support is added to gcc
+std::generator is useful to create ranges. It is unsupported as of
+<2023-11-04 Sat>.
++ Use it in the Fibonacci range.

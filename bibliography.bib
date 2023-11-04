@@ -5,7 +5,7 @@
   booktitle    = {CppCon},
   title        = {An Overview of Standard Ranges},
   year         = {2019},
-  url          = {https://youtu.be/3MBtLeyJKg0},
+  url          = {https://youtu.be/SYLgG7Q5Zws},
   comment      = {
   * Ranges are introduced in C++20.
   * They are a major update in continuation to the STL algorithms.
@@ -26,12 +26,12 @@
     Range adaptors can be called with a pipe syntax.},
 }
 
-@Conference{Brindle2021,
+@Conference{Brindle2020,
   author       = {Tristan Brindle},
   booktitle    = {CppCon},
-  title        = {Conquering {C++20} {Ranges}},
-  year         = {2021},
-  url          = {https://youtu.be/3MBtLeyJKg0},
+  title        = {C++20 Ranges in Practice},
+  year         = {2020},
+  url          = {https://youtu.be/d_E-VLyUnzc},
   comment      = {
   Presents three problems treated with ranges.
   1. Least element of an array
@@ -64,6 +64,26 @@
       do not depend on their arguments.},
 }
 
+@Conference{Brindle2021,
+  author       = {Tristan Brindle},
+  booktitle    = {CppCon},
+  title        = {Conquering {C++20} {Ranges}},
+  year         = {2021},
+  url          = {https://youtu.be/3MBtLeyJKg0},
+  comment      = {
+  We investigate leet-code style problems.
+  1. Fibonacci
+    * Problem is printing n first elements of the Fibonacci sequence which are
+      divisible by k.
+    * Useful std::exchange for iterating fibonacci.
+    * A fibonacci sequence generator, iterator and range is given.
+  2. String trimming revisited
+    * Implementation of a 'drop_last_while_view' range adaptor.
+  3. Dual shifting
+    * Rotating values across two vectors.
+    * Implementation of concatenating/chaining two views (no copy).},
+}
+
 @Misc{Grimm2023,
   author       = {Rainer Grimm},
   howpublished = {Online},
@@ -71,4 +91,12 @@
   title        = {{C++23}: {R}anges {I}mprovements and std::generator},
   year         = {2023},
   url          = {https://www.modernescpp.com/index.php/c23-ranges-improvements-and-stdgenerator/},
+}
+
+@Misc{Quimby2022,
+  author = {Quimby},
+  howpublished = {Stackoverflow},
+  year = {2022},
+  title = {How to write an infinite sequence compatible with {std::ranges}?},
+  url = {https://stackoverflow.com/a/70777836/10376845},
 }
