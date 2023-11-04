@@ -20,7 +20,7 @@
 
 // view_interface around an iterator.
 // Credit goes to [Brindle2021] and [Quimby2022].
-template <std::incrementable T>
+template <std::incrementable T = std::size_t>
 class fib : public std::ranges::view_interface<fib<T>> {
 public:
   struct iterator;
@@ -65,5 +65,6 @@ private:
 
 int main () {
   std::cout << "# ex_fibonacci #" << std::endl;
-  fib<std::size_t>() | std::views::take(10) | pzu::rangePrinter;
+  fib<int>() | std::views::take(10) | pzu::rangePrinter;
+  fib() | std::views::take(10) | pzu::rangePrinter;
 }
