@@ -1,10 +1,10 @@
 var indexSectionsWithContent =
 {
-  0: "filmoprs",
+  0: "cfilmoprs",
   1: "fir",
-  2: "fmr",
+  2: "cfmor",
   3: "ioprs",
-  4: "lop"
+  4: "ilop"
 };
 
 var indexSectionNames =

@@ -1,7 +1,5 @@
 var searchData=
 [
-  ['rangeprinter_13',['RangePrinter',['../classpzu_1_1RangePrinter.html',1,'pzu::RangePrinter'],['../classpzu_1_1RangePrinter.html#a498a81ceecf57aa3be68dde9a33821da',1,'pzu::RangePrinter::RangePrinter()'],['../classpzu_1_1RangePrinter.html#af8444a1289c26e2aa975a7cfd7b4ff62',1,'pzu::RangePrinter::RangePrinter(std::size_t _print_length)'],['../classpzu_1_1RangePrinter.html#a41e5f359227d4383db599866fbb21e62',1,'pzu::RangePrinter::RangePrinter(std::ostream &amp;_ostream)'],['../classpzu_1_1RangePrinter.html#aa740e4e209e610df7c882c2ee4890de9',1,'pzu::RangePrinter::RangePrinter(std::ostream &amp;_ostream, std::size_t _print_length)']]],
-  ['rangeprinter_2ehpp_14',['RangePrinter.hpp',['../RangePrinter_8hpp.html',1,'']]],
-  ['rangesum_15',['RangeSum',['../classpzu_1_1RangeSum.html',1,'pzu::RangeSum'],['../classpzu_1_1RangeSum.html#aede368d76145c5bc10fd3ee3d7334d8c',1,'pzu::RangeSum::RangeSum()']]],
-  ['rangesum_2ehpp_16',['RangeSum.hpp',['../RangeSum_8hpp.html',1,'']]]
+  ['print_15',['print',['../classpzu_1_1RangePrinter.html#a6aa153803d37f8d7425fe7220bded05e',1,'pzu::RangePrinter::print(SizedView auto range) const'],['../classpzu_1_1RangePrinter.html#a81a36f3022ad018dd3465ead7c39c90c',1,'pzu::RangePrinter::print(UnsizedView auto range) const']]],
+  ['print_5flength_16',['print_length',['../classpzu_1_1RangePrinter.html#aacf5eea812c447c15959b18bcc34f35f',1,'pzu::RangePrinter']]]
 ];

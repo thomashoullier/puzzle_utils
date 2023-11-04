@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['rangeprinter_20',['RangePrinter',['../classpzu_1_1RangePrinter.html',1,'pzu']]],
-  ['rangesum_21',['RangeSum',['../classpzu_1_1RangeSum.html',1,'pzu']]]
+  ['rangeprinter_24',['RangePrinter',['../classpzu_1_1RangePrinter.html',1,'pzu']]],
+  ['rangesum_25',['RangeSum',['../classpzu_1_1RangeSum.html',1,'pzu']]]
 ];
