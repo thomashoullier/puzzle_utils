@@ -10,3 +10,19 @@ TEST_CASE("multiple", "[multiple]") {
     SUCCEED("is_multiple_of_all");
   }
 }
+
+TEST_CASE("oddeven", "[oddeven]") {
+  SECTION("calling") {
+    std::views::iota(1,10) | std::views::filter(pzu::is_even);
+    std::views::iota(1,10) | std::views::filter(pzu::is_odd);
+    SUCCEED("calling");
+  }
+  SECTION("correctness") {
+    auto r = std::views::iota(1,10) | std::views::filter(pzu::is_even);
+    auto s = 0;
+    for (const auto &el : r) {
+      s += el;
+    }
+    REQUIRE(s == 20);
+  }
+}
