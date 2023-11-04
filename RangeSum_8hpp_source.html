@@ -80,29 +80,30 @@ $(function() {
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#ifndef RANGESUM_HPP</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#define RANGESUM_HPP</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160; </div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &lt;numeric&gt;</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160; </div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="keyword">namespace </span>pzu {</div>
-<div class="line"><a name="l00009"></a><span class="lineno"><a class="line" href="classpzu_1_1RangeSum.html">    9</a></span>&#160;  <span class="keyword">class </span><a class="code" href="classpzu_1_1RangeSum.html">RangeSum</a> {</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;  <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00012"></a><span class="lineno"><a class="line" href="classpzu_1_1RangeSum.html#aede368d76145c5bc10fd3ee3d7334d8c">   12</a></span>&#160;    <a class="code" href="classpzu_1_1RangeSum.html#aede368d76145c5bc10fd3ee3d7334d8c">RangeSum</a> () {};</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; </div>
-<div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="classpzu_1_1RangeSum.html#a3101fa783fcd8aa2303905a225afe399">   15</a></span>&#160;    <span class="keyword">auto</span> <a class="code" href="classpzu_1_1RangeSum.html#a3101fa783fcd8aa2303905a225afe399">sum</a> (<span class="keyword">auto</span> range)<span class="keyword"> const </span>{</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;      <span class="keywordflow">return</span> std::reduce(range.begin(), range.end());</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    }</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;  };</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
-<div class="line"><a name="l00021"></a><span class="lineno"><a class="line" href="RangeSum_8hpp.html#aa8372065fff8e05397f1ef286828221f">   21</a></span>&#160;  <span class="keyword">auto</span> operator| (<span class="keyword">const</span> <span class="keyword">auto</span> &amp;range, <span class="keyword">const</span> <a class="code" href="classpzu_1_1RangeSum.html">RangeSum</a> &amp;rs) {</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <span class="keywordflow">return</span> rs.<a class="code" href="classpzu_1_1RangeSum.html#a3101fa783fcd8aa2303905a225afe399">sum</a>(range);</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;  }</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;  <span class="keyword">extern</span> RangeSum rangeSum;</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;}</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="preprocessor">#endif </span><span class="comment">// RANGESUM_HPP</span></div>
-<div class="ttc" id="aclasspzu_1_1RangeSum_html"><div class="ttname"><a href="classpzu_1_1RangeSum.html">pzu::RangeSum</a></div><div class="ttdoc">Class for summing range items.</div><div class="ttdef"><b>Definition:</b> RangeSum.hpp:9</div></div>
-<div class="ttc" id="aclasspzu_1_1RangeSum_html_a3101fa783fcd8aa2303905a225afe399"><div class="ttname"><a href="classpzu_1_1RangeSum.html#a3101fa783fcd8aa2303905a225afe399">pzu::RangeSum::sum</a></div><div class="ttdeci">auto sum(auto range) const</div><div class="ttdoc">Sum method over a range.</div><div class="ttdef"><b>Definition:</b> RangeSum.hpp:15</div></div>
-<div class="ttc" id="aclasspzu_1_1RangeSum_html_aede368d76145c5bc10fd3ee3d7334d8c"><div class="ttname"><a href="classpzu_1_1RangeSum.html#aede368d76145c5bc10fd3ee3d7334d8c">pzu::RangeSum::RangeSum</a></div><div class="ttdeci">RangeSum()</div><div class="ttdoc">Default constructor.</div><div class="ttdef"><b>Definition:</b> RangeSum.hpp:12</div></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &lt;functional&gt;</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &lt;algorithm&gt;</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160; </div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="keyword">namespace </span>pzu {</div>
+<div class="line"><a name="l00010"></a><span class="lineno"><a class="line" href="classpzu_1_1RangeSum.html">   10</a></span>&#160;  <span class="keyword">class </span><a class="code" href="classpzu_1_1RangeSum.html">RangeSum</a> {</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;  <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="classpzu_1_1RangeSum.html#aede368d76145c5bc10fd3ee3d7334d8c">   13</a></span>&#160;    <a class="code" href="classpzu_1_1RangeSum.html#aede368d76145c5bc10fd3ee3d7334d8c">RangeSum</a> () {};</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
+<div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="classpzu_1_1RangeSum.html#a3101fa783fcd8aa2303905a225afe399">   16</a></span>&#160;    <span class="keyword">auto</span> <a class="code" href="classpzu_1_1RangeSum.html#a3101fa783fcd8aa2303905a225afe399">sum</a> (<span class="keyword">auto</span> range)<span class="keyword"> const </span>{</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;      <span class="keywordflow">return</span> std::ranges::fold_left(range, 0, std::plus&lt;&gt;());</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    }</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;  };</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
+<div class="line"><a name="l00022"></a><span class="lineno"><a class="line" href="RangeSum_8hpp.html#aa8372065fff8e05397f1ef286828221f">   22</a></span>&#160;  <span class="keyword">auto</span> operator| (<span class="keyword">const</span> <span class="keyword">auto</span> &amp;range, <span class="keyword">const</span> <a class="code" href="classpzu_1_1RangeSum.html">RangeSum</a> &amp;rs) {</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <span class="keywordflow">return</span> rs.<a class="code" href="classpzu_1_1RangeSum.html#a3101fa783fcd8aa2303905a225afe399">sum</a>(range);</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;  }</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;  <span class="keyword">extern</span> RangeSum rangeSum;</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;}</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="preprocessor">#endif </span><span class="comment">// RANGESUM_HPP</span></div>
+<div class="ttc" id="aclasspzu_1_1RangeSum_html"><div class="ttname"><a href="classpzu_1_1RangeSum.html">pzu::RangeSum</a></div><div class="ttdoc">Class for summing range items.</div><div class="ttdef"><b>Definition:</b> RangeSum.hpp:10</div></div>
+<div class="ttc" id="aclasspzu_1_1RangeSum_html_a3101fa783fcd8aa2303905a225afe399"><div class="ttname"><a href="classpzu_1_1RangeSum.html#a3101fa783fcd8aa2303905a225afe399">pzu::RangeSum::sum</a></div><div class="ttdeci">auto sum(auto range) const</div><div class="ttdoc">Sum method over a range.</div><div class="ttdef"><b>Definition:</b> RangeSum.hpp:16</div></div>
+<div class="ttc" id="aclasspzu_1_1RangeSum_html_aede368d76145c5bc10fd3ee3d7334d8c"><div class="ttname"><a href="classpzu_1_1RangeSum.html#aede368d76145c5bc10fd3ee3d7334d8c">pzu::RangeSum::RangeSum</a></div><div class="ttdeci">RangeSum()</div><div class="ttdoc">Default constructor.</div><div class="ttdef"><b>Definition:</b> RangeSum.hpp:13</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
