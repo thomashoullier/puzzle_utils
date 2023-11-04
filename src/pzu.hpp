@@ -6,5 +6,6 @@
 #include "ranges/fibonacci.hpp"
 #include "predicates/multiple.hpp"
 #include "predicates/oddeven.hpp"
+#include "predicates/comparisons.hpp"
 
 #endif // PZU_HPP

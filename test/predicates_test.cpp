@@ -26,3 +26,21 @@ TEST_CASE("oddeven", "[oddeven]") {
     REQUIRE(s == 20);
   }
 }
+
+TEST_CASE("comparisons", "[comparisons]") {
+  SECTION("calling") {
+    std::views::iota(1,10) | std::views::filter(pzu::gt(5));
+    std::views::iota(1,10) | std::views::filter(pzu::gte(5));
+    std::views::iota(1,10) | std::views::filter(pzu::lt(5));
+    std::views::iota(1,10) | std::views::filter(pzu::lte(5));
+    SUCCEED("calling");
+  }
+  SECTION("correctness") {
+    auto r = std::views::iota(1,10) | std::views::filter(pzu::gt(5));
+    auto s = 0;
+    for (const auto &el : r) {
+      s += el;
+    }
+    REQUIRE(s == (6+7+8+9));
+  }
+}
