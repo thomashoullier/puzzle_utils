@@ -2,7 +2,8 @@
 #ifndef RANGESUM_HPP
 #define RANGESUM_HPP
 
-#include <numeric>
+#include <functional>
+#include <algorithm>
 
 namespace pzu {
   /** @brief Class for summing range items. */
@@ -13,7 +14,7 @@ namespace pzu {
 
     /** @brief Sum method over a range. */
     auto sum (auto range) const {
-      return std::reduce(range.begin(), range.end());
+      return std::ranges::fold_left(range, 0, std::plus<>());
     }
   };
 

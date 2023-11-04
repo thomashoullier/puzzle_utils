@@ -38,6 +38,10 @@ TEST_CASE("RangeSum", "[RangeSum]") {
     auto s = std::views::iota(1,20) | pzu::rangeSum;
     REQUIRE(s == 190);
   }
+  SECTION("Non-regression") {
+    auto s = pzu::fibonacci() | std::views::take(10) | pzu::rangeSum;
+    REQUIRE(s == 88);
+  }
 }
 
 TEST_CASE("fibonacci", "[fibonacci]") {

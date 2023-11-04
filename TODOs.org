@@ -145,7 +145,8 @@ We want to be able to do ~auto el = range | pzu::get_nth(4)~.
 ** DONE Even/Odd predicate
 CLOSED: [2023-11-04 Sat 14:38]
 + Must be callable with ~std::views::filter(pzu::is_odd)~.
-** TODO Greater than-style lambda predicates
+** DONE Greater than-style lambda predicates
+CLOSED: [2023-11-04 Sat 18:14]
 + Callable with ~std::views::filter(pzu::gt(15))~.
 + Implement gt, gte, lt, lte.
 
@@ -209,3 +210,9 @@ Something like ~auto foo = take(10) | rangePrinter~ and then ~range | foo~.
 std::generator is useful to create ranges. It is unsupported as of
 <2023-11-04 Sat>.
 + Use it in the Fibonacci range.
+** DONE BUG: rangeSum of fibonacci
+CLOSED: [2023-11-04 Sat 18:14]
+The following does not compile:
+~pzu::fibonacci() | std::views::take(10) | pzu::rangeSum;~
+
+We can make fold_left work, but not reduce.

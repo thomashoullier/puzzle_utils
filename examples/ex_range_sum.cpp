@@ -23,4 +23,8 @@ int main () {
   // pzu
   auto pzu_sum = r | pzu::rangeSum;
   std::cout << "pzu_sum: " << pzu_sum << std::endl;
+
+  // Other pzu example
+  auto s = pzu::fibonacci() | std::views::take(10) | pzu::rangeSum;
+  std::cout << s << std::endl;
 }
