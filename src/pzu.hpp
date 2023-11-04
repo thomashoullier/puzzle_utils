@@ -4,7 +4,7 @@
 #include "ranges/RangePrinter.hpp"
 #include "ranges/RangeSum.hpp"
 #include "ranges/fibonacci.hpp"
-#include "multiple/multiple.hpp"
-#include "multiple/oddeven.hpp"
+#include "predicates/multiple.hpp"
+#include "predicates/oddeven.hpp"
 
 #endif // PZU_HPP

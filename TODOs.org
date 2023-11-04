@@ -142,8 +142,12 @@ CLOSED: [2023-10-29 Sun 21:41]
 ** TODO Get the nth element of a range.
 We want to be able to do ~auto el = range | pzu::get_nth(4)~.
 + See std::advance applied to the iterator.
-** TODO Even/Odd predicate
+** DONE Even/Odd predicate
+CLOSED: [2023-11-04 Sat 14:38]
 + Must be callable with ~std::views::filter(pzu::is_odd)~.
+** TODO Greater than-style lambda predicates
++ Callable with ~std::views::filter(pzu::gt(15))~.
++ Implement gt, gte, lt, lte.
 
 * Maintenance
 ** HOLD Replace the external fmt library with the standard C++ when it becomes available

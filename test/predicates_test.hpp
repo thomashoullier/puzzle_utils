@@ -1,8 +1,8 @@
-#ifndef MULTIPLE_TEST
-#define MULTIPLE_TEST
+#ifndef PREDICATES_TEST
+#define PREDICATES_TEST
 
 #include <catch2/catch_test_macros.hpp>
 #include <pzu.hpp>
 #include <ranges>
 
-#endif // MULTIPLE_TEST
+#endif // PREDICATES_TEST
