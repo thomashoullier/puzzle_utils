@@ -82,4 +82,7 @@ target_link_libraries(ex_fibonacci PRIVATE pzu)
 add_executable(ex_oddeven "${EXAMPLES_DIR}/ex_oddeven.cpp")
 target_link_libraries(ex_oddeven PRIVATE pzu)
 
+add_executable(ex_comparisons "${EXAMPLES_DIR}/ex_comparisons.cpp")
+target_link_libraries(ex_comparisons PRIVATE pzu)
+
 endif()
