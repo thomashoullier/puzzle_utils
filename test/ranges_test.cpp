@@ -34,4 +34,20 @@ TEST_CASE("RangeSum", "[RangeSum]") {
     (void)s;
     SUCCEED("rangeSum");
   }
+  SECTION("correctness") {
+    auto s = std::views::iota(1,20) | pzu::rangeSum;
+    REQUIRE(s == 190);
+  }
+}
+
+TEST_CASE("fibonacci", "[fibonacci]") {
+  SECTION("calling") {
+    auto f = pzu::fibonacci();
+    (void)f;
+    SUCCEED("fibonacci()");
+  }
+  SECTION("correctness") {
+    auto first = pzu::fibonacci();
+    REQUIRE(*first.begin() == 0);
+  }
 }

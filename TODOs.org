@@ -138,6 +138,9 @@ CLOSED: [2023-10-29 Sun 21:41]
 + The solution is to just define a class RangeSum which is called with
   an overloaded operator| over a range. It has a sum method which takes the
   range and returns the sum.
+** TODO Get the nth element of a range.
+We want to be able to do ~auto el = range | pzu::get_nth(4)~.
++ See std::advance applied to the iterator.
 
 * Maintenance
 ** HOLD Replace the external fmt library with the standard C++ when it becomes available
