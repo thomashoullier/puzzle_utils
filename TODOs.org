@@ -102,7 +102,8 @@ It would be called like so: ~is<multiple><all>(3,5)~.
 Only implement it when we encounter another predicate such as ~multiple~.
 Is there already something similar in the standard?
 
-** TODO Unbounded sequence for Fibonacci
+** DONE Unbounded sequence for Fibonacci
+CLOSED: [2023-11-04 Sat 10:45]
 + We can use a C++23 range generator, but they are not supported by gcc as of
 <2023-11-01 Wed>. See Grimm2023.
 + See Brindle2021 for an implementation of fibonacci range.
@@ -141,6 +142,8 @@ CLOSED: [2023-10-29 Sun 21:41]
 ** TODO Get the nth element of a range.
 We want to be able to do ~auto el = range | pzu::get_nth(4)~.
 + See std::advance applied to the iterator.
+** TODO Even/Odd predicate
++ Must be callable with ~std::views::filter(pzu::is_odd)~.
 
 * Maintenance
 ** HOLD Replace the external fmt library with the standard C++ when it becomes available
